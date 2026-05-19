@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Hub estatico para artigos cientificos, imagens, videos, projetos e respostas a questionamentos."
+    />
+    <title>Hub de Projetos e Materiais</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Hub de Projetos">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>Hub de Materiais</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Navegacao principal">
+        <a href="#artigos">Artigos cientificos</a>
+        <a href="#imagens">Imagens</a>
+        <a href="#videos">Videos</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#respostas">Respostas a questionamentos</a>
+      </nav>
+
+      <a class="header-contact" href="https://wa.me/5511977612546" target="_blank" rel="noreferrer">
+        WhatsApp
+      </a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-content">
+          <p class="eyebrow">Repositorio visual do time</p>
+          <h1 id="page-title">Materiais organizados para consulta e apresentacao.</h1>
+          <p class="hero-copy">
+            Uma landing page estatica, moderna e facil de manter para centralizar
+            documentos, estudos, midias, prototipos e respostas tecnicas em um
+            unico endereco publicado pelo GitHub Pages.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-action" href="#respostas">Ver primeiro material</a>
+            <a class="secondary-action" href="https://wa.me/5511977612546" target="_blank" rel="noreferrer">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Resumo do acervo">
+          <div class="panel-top">
+            <span class="panel-label">Acervo inicial</span>
+            <span class="live-dot" aria-hidden="true"></span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-value" id="material-count">1</span>
+            <span class="metric-label">material publicado</span>
+          </div>
+          <div class="panel-list">
+            <span>Documento tecnico</span>
+            <span>Consulta rapida</span>
+            <span>Contato direto</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section-intro" aria-label="Categorias do hub">
+        <a class="category-card" href="#artigos">
+          <span>01</span>
+          <strong>Artigos cientificos</strong>
+          <small>Leituras, evidencias e referencias tecnicas.</small>
+        </a>
+        <a class="category-card" href="#imagens">
+          <span>02</span>
+          <strong>Imagens</strong>
+          <small>Galerias, diagramas e materiais visuais.</small>
+        </a>
+        <a class="category-card" href="#videos">
+          <span>03</span>
+          <strong>Videos</strong>
+          <small>Apresentacoes, demonstracoes e registros.</small>
+        </a>
+        <a class="category-card" href="#projetos">
+          <span>04</span>
+          <strong>Projetos</strong>
+          <small>Iniciativas em andamento e entregas publicadas.</small>
+        </a>
+      </section>
+
+      <section class="content-section" id="artigos" aria-labelledby="artigos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Biblioteca</p>
+          <h2 id="artigos-title">Artigos cientificos</h2>
+          <p>Espaco reservado para estudos, papers e referencias com contexto de uso.</p>
+        </div>
+        <div class="empty-panel">Nenhum artigo publicado ainda.</div>
+      </section>
+
+      <section class="content-section split-section" id="imagens" aria-labelledby="imagens-title">
+        <div class="section-heading">
+          <p class="eyebrow">Midia</p>
+          <h2 id="imagens-title">Imagens</h2>
+          <p>Use esta area para organizar capturas, diagramas, mapas mentais e pecas visuais.</p>
+        </div>
+        <div class="visual-strip" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="content-section" id="videos" aria-labelledby="videos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Apresentacoes</p>
+          <h2 id="videos-title">Videos</h2>
+          <p>Area para publicar links de gravacoes, demos e treinamentos internos.</p>
+        </div>
+        <div class="empty-panel">Nenhum video publicado ainda.</div>
+      </section>
+
+      <section class="content-section" id="projetos" aria-labelledby="projetos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Portifolio</p>
+          <h2 id="projetos-title">Projetos</h2>
+          <p>Iniciativas do time podem ser cadastradas aqui com links de acesso e status.</p>
+        </div>
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="content-section featured-section" id="respostas" aria-labelledby="respostas-title">
+        <div class="section-heading">
+          <p class="eyebrow">Base tecnica</p>
+          <h2 id="respostas-title">Respostas a questionamentos</h2>
+          <p>Materiais prontos para consulta, revisao e compartilhamento com o time.</p>
+        </div>
+
+        <article class="featured-card">
+          <div class="featured-meta">
+            <span class="status ativo">Publicado</span>
+            <span>Documento tecnico</span>
+          </div>
+          <h3>Parecer Tecnico Preliminar - Sonda Uretral com NPAg</h3>
+          <p>
+            Primeiro material do acervo: gerador em Node.js para criar um parecer
+            tecnico preliminar em formato DOCX sobre sonda uretral de alivio
+            impregnada com nanoparticulas de prata.
+          </p>
+          <div class="featured-actions">
+            <a class="primary-action" href="Respostas%20a%20questionamentos/parecer-tecnico-anvisa-sonda-npag.html">
+              Abrir material
+            </a>
+            <a class="secondary-action" href="Respostas%20a%20questionamentos/parecer-tecnico-anvisa-sonda-npag.js">
+              Ver codigo
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contato</p>
+          <h2 id="contact-title">Precisa falar comigo?</h2>
+          <p>Envie uma mensagem direta pelo WhatsApp para alinhar publicacoes e novos materiais.</p>
+        </div>
+        <a class="whatsapp-card" href="https://wa.me/5511977612546" target="_blank" rel="noreferrer">
+          <span>WhatsApp</span>
+          <strong>11 97761-2546</strong>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Hub de Materiais</span>
+      <a href="#inicio">Voltar ao topo</a>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
