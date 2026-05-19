@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Parecer Tecnico - Sonda Uretral com NPAg</title>
+    <title>Analise Tecnica ANVISA - Sonda Uretral com NPAg</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <style>
       body {
@@ -11,12 +11,13 @@
       }
 
       .document-page {
-        width: min(920px, calc(100% - 32px));
+        width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
         padding: 42px 0 72px;
       }
 
       .document-shell {
+        overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #ffffff;
@@ -24,23 +25,88 @@
       }
 
       .document-cover {
-        padding: clamp(28px, 5vw, 54px);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 28px;
+        padding: clamp(28px, 5vw, 56px);
         border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(12, 122, 117, 0.1), transparent 42%),
+          #ffffff;
       }
 
       .document-cover h1 {
-        max-width: 780px;
-        font-size: clamp(2.3rem, 5vw, 4rem);
+        max-width: 760px;
+        font-size: clamp(2.4rem, 5vw, 4.8rem);
+      }
+
+      .meta-panel {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .meta-panel div {
+        display: grid;
+        gap: 4px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .meta-panel div:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .meta-panel span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .meta-panel strong {
+        line-height: 1.35;
       }
 
       .document-body {
         display: grid;
-        gap: 22px;
-        padding: clamp(24px, 5vw, 48px);
+        gap: 34px;
+        padding: clamp(24px, 5vw, 52px);
+      }
+
+      .doc-actions,
+      .doc-nav,
+      .evidence-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .doc-nav {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface-soft);
+      }
+
+      .doc-nav a {
+        min-height: 36px;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: #ffffff;
+        color: var(--muted-strong);
+        font-size: 0.9rem;
+        font-weight: 750;
       }
 
       .doc-section {
-        padding-bottom: 22px;
+        scroll-margin-top: 96px;
+        padding-bottom: 30px;
         border-bottom: 1px solid var(--line);
       }
 
@@ -49,7 +115,12 @@
       }
 
       .doc-section h2 {
-        font-size: clamp(1.45rem, 3vw, 2rem);
+        font-size: clamp(1.55rem, 3vw, 2.3rem);
+      }
+
+      .doc-section h3 {
+        margin-top: 24px;
+        color: var(--accent-dark);
       }
 
       .doc-section p,
@@ -58,11 +129,60 @@
         line-height: 1.75;
       }
 
-      .doc-actions {
-        display: flex;
-        flex-wrap: wrap;
+      .callout {
+        padding: 18px;
+        border: 1px solid rgba(12, 122, 117, 0.24);
+        border-radius: 8px;
+        background: rgba(12, 122, 117, 0.08);
+      }
+
+      .warning {
+        border-color: rgba(157, 36, 73, 0.26);
+        background: rgba(157, 36, 73, 0.08);
+      }
+
+      .question-list {
+        display: grid;
         gap: 10px;
-        margin-top: 24px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .question-list li {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .flow-figure {
+        margin: 12px 0 0;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .flow-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .evidence-grid span {
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: var(--surface-soft);
+        color: var(--muted-strong);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      @media (max-width: 820px) {
+        .document-cover {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -84,59 +204,263 @@
     <main class="document-page">
       <article class="document-shell">
         <div class="document-cover">
-          <p class="eyebrow">Resposta a questionamento</p>
-          <h1>Parecer Tecnico Preliminar - Sonda Uretral com Nanoparticulas de Prata</h1>
-          <p class="hero-copy">
-            Material tecnico sobre requisitos regulatorios, caracterizacao de
-            nanomateriais, biocompatibilidade, eficacia antimicrobiana, BPF,
-            rotulagem e vigilancia pos-mercado.
-          </p>
-          <div class="doc-actions">
-            <a class="primary-action" href="parecer-tecnico-anvisa-sonda-npag.js">Ver codigo gerador</a>
-            <a class="secondary-action" href="../index.html#respostas">Voltar ao hub</a>
+          <div>
+            <p class="eyebrow">Analise tecnica - Relatoria ANVISA</p>
+            <h1>Sonda Uretral de Alivio impregnada com Nanoparticulas de Prata</h1>
+            <p class="hero-copy">
+              Analise tecnica completa como Agente Senior Relator da ANVISA,
+              estruturada em blocos de investigacao regulatoria, nanotecnologica,
+              toxicologica, antimicrobiana, fabril e pos-mercado.
+            </p>
+            <div class="doc-actions">
+              <a class="primary-action" href="parecer-tecnico-anvisa-sonda-npag.js">Ver codigo gerador</a>
+              <a class="secondary-action" href="anvisa_fluxo_relatorio.svg">Abrir fluxo SVG</a>
+              <a class="secondary-action" href="../index.html#respostas">Voltar ao hub</a>
+            </div>
           </div>
+
+          <aside class="meta-panel" aria-label="Dados do produto">
+            <div>
+              <span>Produto</span>
+              <strong>Sonda uretral de alivio com NPAg</strong>
+            </div>
+            <div>
+              <span>Classificacao preliminar</span>
+              <strong>Produto para saude - artigo medico-hospitalar</strong>
+            </div>
+            <div>
+              <span>RDC aplicavel</span>
+              <strong>RDC 185/2001, RDC 56/2001, RDC 27/2011 e complementares</strong>
+            </div>
+            <div>
+              <span>Perfil de risco</span>
+              <strong>Classe II/III - inovacao tecnologica com nanomaterial</strong>
+            </div>
+          </aside>
         </div>
 
         <div class="document-body">
-          <section class="doc-section">
-            <h2>1. Sumario Executivo</h2>
+          <nav class="doc-nav" aria-label="Sumario do material">
+            <a href="#investigacao">Investigacao</a>
+            <a href="#bloco-1">Bloco 1</a>
+            <a href="#bloco-2">Bloco 2</a>
+            <a href="#bloco-3">Bloco 3</a>
+            <a href="#bloco-4">Bloco 4</a>
+            <a href="#bloco-5">Bloco 5</a>
+            <a href="#bloco-6">Bloco 6</a>
+            <a href="#pesquisas">Pesquisas</a>
+            <a href="#sintese">Sintese</a>
+          </nav>
+
+          <section class="doc-section" id="investigacao">
+            <h2>Investigacao sistematica previa</h2>
             <p>
-              O parecer avalia uma sonda uretral de alivio impregnada com
-              nanoparticulas de prata. A tecnologia adiciona exigencias
-              regulatórias superiores as aplicaveis a cateteres uretrais
-              convencionais, principalmente por envolver nanomaterial metalico
-              funcional com alegacao antimicrobiana.
+              Antes de responder ao requerente, a relatoria conduz uma
+              investigacao sistematica dividida em blocos tecnicos. O objetivo e
+              verificar se o dossie sustenta a seguranca, eficacia, qualidade,
+              rastreabilidade e conformidade regulatoria de um dispositivo
+              medico com nanomaterial funcional.
+            </p>
+            <figure class="flow-figure">
+              <img src="anvisa_fluxo_relatorio.svg" alt="Fluxo tecnico de relatoria ANVISA" />
+            </figure>
+          </section>
+
+          <section class="doc-section" id="bloco-1">
+            <h2>Bloco 1 - Classificacao e enquadramento regulatorio</h2>
+            <p>
+              O produto e apresentado como sonda uretral de alivio. A primeira
+              verificacao e identificar o material base do cateter, como latex,
+              PVC, silicone ou poliuretano, pois a matriz polimerica influencia
+              compatibilidade, liberacao, estabilidade e desempenho mecanico.
+            </p>
+            <p>
+              A impregnacao por nanoparticulas de prata constitui a principal
+              inovacao tecnologica. Portanto, o produto deve ser tratado como
+              tecnologia nova no contexto da RDC 185/2001, com dossie completo e
+              sem possibilidade de registro por simples equivalencia tecnica.
+            </p>
+            <ul class="question-list">
+              <li>Qual e o material base do cateter e sua norma tecnica aplicavel?</li>
+              <li>Ha precedente de registro na ANVISA para produto similar?</li>
+              <li>O requerente pretende enquadrar a tecnologia como equivalente ou como inovacao?</li>
+              <li>Ha nota tecnica GGTPS/ANVISA ou orientacao especifica sobre nanotecnologia aplicavel ao caso?</li>
+            </ul>
+            <p>
+              A relatoria consulta precedentes de registro na ANVISA, regulamentos
+              tecnicos vigentes sobre nanomateriais em produtos para saude e a
+              ISO/TR 10993-22, referencia central para biocompatibilidade de
+              nanomateriais em dispositivos medicos.
             </p>
           </section>
 
-          <section class="doc-section">
-            <h2>2. Enquadramento Regulatório</h2>
+          <section class="doc-section" id="bloco-2">
+            <h2>Bloco 2 - Caracterizacao das nanoparticulas de prata</h2>
             <p>
-              A avaliacao considera RDC 185/2001, RDC 56/2001, RDC 16/2013,
-              RDC 36/2015, ISO 10993-1, ISO/TR 10993-22 e ABNT NBR ISO 8669-2.
-              A classificacao preliminar pode variar conforme duracao de
-              contato, concentracao de prata e populacao-alvo.
+              Este e o no central da analise. A variacao nos parametros
+              nanotecnologicos pode alterar completamente o perfil toxicologico,
+              a reatividade biologica, a migracao e a eficacia antimicrobiana do
+              produto.
             </p>
-          </section>
-
-          <section class="doc-section">
-            <h2>3. Blocos tecnicos de exigencia</h2>
+            <h3>Parametros fisico-quimicos obrigatorios</h3>
             <ul>
-              <li>Caracterizacao das nanoparticulas de prata.</li>
-              <li>Biocompatibilidade e toxicologia do produto final esterilizado.</li>
-              <li>Eficacia antimicrobiana e claims permitidos.</li>
-              <li>Desempenho do dispositivo e boas praticas de fabricacao.</li>
-              <li>Rotulagem, instrucoes de uso e tecnovigilancia pos-mercado.</li>
+              <li>Tamanho medio das nanoparticulas em nm e distribuicao granulometrica, incluindo PDI.</li>
+              <li>Forma e morfologia: esfericas, triangulares, bastonetes ou outra geometria.</li>
+              <li>Concentracao superficial em ug/cm2 e concentracao total por unidade do produto.</li>
+              <li>Metodo de impregnacao: coating superficial, incorporacao na matriz polimerica ou conjugacao quimica.</li>
+              <li>Taxa de liberacao de ions Ag+ in vitro em simuladores de urina nos tempos 1h, 24h, 72h, 7 dias e ate o fim da vida util declarada.</li>
+              <li>Estabilidade das nanoparticulas apos esterilizacao por EtO, radiacao gama ou vapor umido.</li>
+              <li>Potencial zeta como indicador de estabilidade coloidal residual.</li>
+              <li>Presenca de agentes estabilizantes como citrato, PVP ou PEG, com biocompatibilidade individual.</li>
+            </ul>
+            <p>
+              A relatoria compara dados de tamanho e concentracao de NPAg em
+              PubMed e Embase. Nanoparticulas abaixo de 10 nm tendem a penetrar
+              membranas celulares com maior facilidade; acima de 100 nm podem se
+              comportar mais proximamente a prata coloidal convencional. Essa
+              diferenca e regulatoriamente relevante.
+            </p>
+          </section>
+
+          <section class="doc-section" id="bloco-3">
+            <h2>Bloco 3 - Biocompatibilidade e toxicidade</h2>
+            <div class="callout warning">
+              <p>
+                Este e o bloco mais critico. A prata nanoparticulada apresenta
+                propriedades toxicologicas distintas da prata ionica convencional
+                ou da prata metalica bulk. Nao se aceita extrapolacao direta de
+                dados de prata nao-nano para NPAg.
+              </p>
+            </div>
+            <p>
+              Como a sonda tem contato prolongado com mucosa urogenital e pode
+              envolver contato com sangue em pacientes cateterizados, aplica-se a
+              matriz da ISO 10993-1 para contato com mucosa e duracao prolongada
+              maior que 24 horas.
+            </p>
+            <h3>Ensaios minimos esperados</h3>
+            <ul>
+              <li>Citotoxicidade, ISO 10993-5, com celulas uroteliais humanas, nao apenas fibroblastos L929.</li>
+              <li>Sensibilizacao, ISO 10993-10, por GPMT ou teste de Buehler.</li>
+              <li>Irritacao e reatividade intracutanea, ISO 10993-10 e ISO 10993-23.</li>
+              <li>Toxicidade sistemica aguda, ISO 10993-11.</li>
+              <li>Toxicidade subcronica ou subaguda, ISO 10993-11, especialmente para uso repetido.</li>
+              <li>Genotoxicidade, ISO 10993-3: Ames, micronucleo in vitro e micronucleo in vivo.</li>
+              <li>Implantacao, ISO 10993-6, se houver potencial de permanencia tecidual de NPAg.</li>
+              <li>Toxicocinetica de nanoparticulas, incluindo distribuicao e acumulo em orgaos-alvo, especialmente rins.</li>
+              <li>Avaliacao de argiria local e sistemica, com estudo de biodistribuicao.</li>
+            </ul>
+            <h3>Questionamentos especificos ao requerente</h3>
+            <ul class="question-list">
+              <li>Os testes foram realizados com o produto final apos esterilizacao ou apenas com extratos das nanoparticulas isoladas?</li>
+              <li>Os extratos foram preparados conforme ISO 10993-12, nas condicoes reais de uso clinico?</li>
+              <li>Os dados de toxicidade sao de NPAg com o mesmo tamanho, morfologia e revestimento superficial do produto submetido?</li>
+              <li>Ha estudo proprio do requerente ou apenas dados bibliograficos de outras formulacoes?</li>
+            </ul>
+            <p>
+              Como nao ha limiar toxicologico bem estabelecido pela ANVISA para
+              NPAg em dispositivos de contato mucoso, a abordagem regulatoria
+              deve ser conservadora e exigir dados proprios do produto final.
+            </p>
+          </section>
+
+          <section class="doc-section" id="bloco-4">
+            <h2>Bloco 4 - Eficacia antimicrobiana</h2>
+            <p>
+              A razao de existir das NPAg no produto e reduzir infeccao do trato
+              urinario associada a cateter. Essa reivindicacao precisa ser
+              sustentada com rigor cientifico e metodologia adequada.
+            </p>
+            <ul class="question-list">
+              <li>Quais sao exatamente os claims declarados: reduz colonizacao bacteriana, previne ITU ou possui acao antimicrobiana?</li>
+              <li>Os testes antimicrobianos foram feitos na superficie do cateter ou apenas com extratos?</li>
+              <li>Foi usado teste de aderencia bacteriana em superficie, como ISO 22196 adaptado ou ASTM E2180?</li>
+              <li>O painel contempla E. coli, Klebsiella pneumoniae, Pseudomonas aeruginosa, Enterococcus faecalis, Candida albicans e Staphylococcus epidermidis?</li>
+              <li>Foram avaliadas formacao e inibicao de biofilme?</li>
+              <li>A atividade antimicrobiana se mantem ao longo da vida util declarada?</li>
+              <li>Houve avaliacao de resistencia apos exposicao subinibitoria as NPAg?</li>
+              <li>Existe estudo clinico prospectivo, randomizado e controlado demonstrando reducao de ITU em pacientes?</li>
+            </ul>
+            <p>
+              A diferenca entre evidencia in vitro e eficacia clinica e critica
+              para limitar ou autorizar os claims de rotulagem e publicidade.
+            </p>
+          </section>
+
+          <section class="doc-section" id="bloco-5">
+            <h2>Bloco 5 - Desempenho do dispositivo e qualidade de manufatura</h2>
+            <ul class="question-list">
+              <li>O produto atende integralmente a ABNT NBR ISO 8669-2 ou norma tecnica especifica aplicavel ao tipo de sonda?</li>
+              <li>Todos os requisitos dimensionais, resistencia a tracao, vedacao do balao se aplicavel e ausencia de rebarbas estao documentados?</li>
+              <li>Qual e o processo de esterilizacao e qual o impacto comprovado sobre as NPAg?</li>
+              <li>Ha estudo de estabilidade pos-esterilizacao com caracterizacao antes e depois do processo?</li>
+              <li>O fabricante possui BPF vigente conforme RDC 16/2013, validada no DATAVISA?</li>
+              <li>Qual e o prazo de validade declarado e qual estudo de estabilidade o fundamenta?</li>
+              <li>O estudo monitora concentracao de prata superficial, oxidacao e atividade antimicrobiana residual?</li>
+              <li>Existe rastreabilidade de lote das nanoparticulas como insumo critico, incluindo fornecedor e CoA?</li>
             </ul>
           </section>
 
-          <section class="doc-section">
-            <h2>4. Posicionamento tecnico</h2>
+          <section class="doc-section" id="bloco-6">
+            <h2>Bloco 6 - Rotulagem, instrucoes de uso e vigilancia pos-mercado</h2>
+            <ul class="question-list">
+              <li>A rotulagem cumpre RDC 185/2001 e RDC 36/2015?</li>
+              <li>Ha mencao explicita a presenca de nanoparticulas de prata e suas advertencias?</li>
+              <li>A IFU contempla populacao-alvo, alergia a prata, tempo maximo de permanencia e descarte adequado?</li>
+              <li>As NPAg foram consideradas no plano de residuos de servico de saude, incluindo risco ambiental?</li>
+              <li>Ha plano de tecnovigilancia pos-registro para monitoramento ativo de eventos adversos?</li>
+              <li>O plano cobre hipersensibilidade a prata e argiria local?</li>
+            </ul>
+          </section>
+
+          <section class="doc-section" id="pesquisas">
+            <h2>Pesquisas prioritarias antes do parecer</h2>
+            <p>Antes de redigir exigencia ou parecer definitivo, a relatoria realiza:</p>
+            <div class="evidence-grid" aria-label="Fontes consultadas">
+              <span>SINAES</span>
+              <span>Tecnovigilancia ANVISA</span>
+              <span>FDA MAUDE</span>
+              <span>EUDAMED</span>
+              <span>PubMed</span>
+              <span>Embase</span>
+              <span>Cochrane</span>
+              <span>CLSI</span>
+              <span>ECHA</span>
+              <span>WHO</span>
+              <span>SCENIHR</span>
+              <span>ISO/TR 10993-22</span>
+            </div>
             <p>
-              A inovacao tecnologica nao reduz exigencias regulatorias. Ela as
-              amplia, pois introduz variaveis toxicologicas, analiticas e de
-              desempenho que precisam ser demonstradas com dados especificos do
-              produto final.
+              A pesquisa busca notificacoes de eventos adversos, recalls,
+              alertas internacionais, precedentes regulatorios, dados de
+              seguranca pos-mercado, metanalises sobre cateteres impregnados com
+              prata, estudos sobre resistencia bacteriana a NPAg e criterios de
+              avaliacao internacional para nanomateriais em dispositivos medicos.
+            </p>
+          </section>
+
+          <section class="doc-section" id="sintese">
+            <h2>Sintese do posicionamento como relator</h2>
+            <div class="callout">
+              <p>
+                A existencia de nanoparticulas de prata em um dispositivo que
+                ficara em contato direto e prolongado com mucosa urogenital
+                vascularizada, potencialmente em pacientes com comprometimento
+                renal, oncologicos ou imunossuprimidos, eleva substancialmente o
+                grau de exigencia regulatoria.
+              </p>
+            </div>
+            <p>
+              O dossie padrao para sonda uretral convencional e condicao
+              necessaria, mas insuficiente. O requerente deve apresentar modulo
+              nanotoxicológico completo e independente, com dados proprios do
+              produto final, nao extrapolados de literatura.
+            </p>
+            <p>
+              A ANVISA tem o dever legal, nos termos da Lei 6.360/1976 e da Lei
+              9.782/1999, de assegurar que o produto seja seguro, eficaz e de
+              qualidade antes de chegar ao paciente. A inovacao tecnologica nao
+              reduz esse dever; ela o amplifica.
             </p>
           </section>
         </div>
