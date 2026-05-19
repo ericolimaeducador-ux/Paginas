@@ -19,11 +19,11 @@ O primeiro material esta em:
 - `Respostas a questionamentos/parecer-tecnico-anvisa-sonda-npag.html`
 - `Respostas a questionamentos/parecer-tecnico-anvisa-sonda-npag.js`
 
-Para gerar o `.docx`, instale a dependencia `docx` e execute:
+Para gerar o `.docx`, instale as dependencias e execute:
 
 ```bash
-npm install docx
-node "Respostas a questionamentos/parecer-tecnico-anvisa-sonda-npag.js"
+npm install
+npm run gerar:parecer-npag
 ```
 
 ## Publicar no GitHub Pages

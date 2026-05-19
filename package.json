@@ -1,0 +1,11 @@
+{
+  "name": "paginas-hub-materiais",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "gerar:parecer-npag": "node \"Respostas a questionamentos/parecer-tecnico-anvisa-sonda-npag.js\""
+  },
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}
